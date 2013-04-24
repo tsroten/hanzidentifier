@@ -20,23 +20,15 @@ Functions:
 
 """
 
-import os.path
-try:
-    import cPickle as pickle
-except ImportError:
-    import pickle
+import data
 
 TRAD = 0
 SIMP = 1
 EITHER = 2
 BOTH = 3
 
-with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                       'char_data'), 'rb') as f:
-    char_data = pickle.load(f)
-
-TRAD_CHARS = char_data['traditional']
-SIMP_CHARS = char_data['simplified']
+TRAD_CHARS = set(list(data.TRAD))
+SIMP_CHARS = set(list(data.SIMP))
 
 SHARED_CHARS = TRAD_CHARS.intersection(SIMP_CHARS)
 ALL_CHARS = TRAD_CHARS.union(SIMP_CHARS)
