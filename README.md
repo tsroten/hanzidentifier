@@ -14,7 +14,7 @@ There are five possible return values:
 * hanzidentifier.SIMP: the string consists of simplified characters.
 * hanzidentifier.BOTH: the string consists of characters recognized solely as traditional characters and also consists of characters recognized solely as simplified characters.
 
-```
+```python
 >>> import hanzidentifier
 >>> hanzidentifier.identify('Hello my name is Thomas.') is None
 True
@@ -31,4 +31,4 @@ True
 License
 -------
 
-Hanzi Identifier is released under the OSI-approved `MIT License <http://opensource.org/licenses/MIT>`_. See the file LICENSE.txt for more information.
+Hanzi Identifier is released under the OSI-approved [MIT License](http://opensource.org/licenses/MIT). See the file LICENSE.txt for more information.
