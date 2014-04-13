@@ -1,59 +1,96 @@
-"""Python module that identifies Chinese text as simplified or traditional.
+# -*- coding: utf-8 -*-
+"""Python module that identifies Chinese text as Simplified or Traditional."""
 
-Constants:
-    TRAD: The value returned by identify() when the text is recognized as
-        traditional.
-    SIMP: The value returned by identify() when the text is recognized as
-        simplified.
-    EITHER: The value returned by identify() when the text is recognized as
-        being either simplified or traditional (inconclusive).
-    BOTH: The value returned by identify() when the text is recognized as
-        having both simplified and traditional characters.
-    TRAD_CHARS: a set of characters recognized as traditional.
-    SIMP_CHARS: a set of characters recognized as simplified.
-    SHARED_CHARS: a set of characters recognized in simplified and traditional
-        writing.
-    ALL_CHARS: a set representing traditional and simplified characters.
+from __future__ import unicode_literals
+import re
 
-Functions:
-    identify: identify whether a text is simplified or traditional.
+from zhon import cedict
 
-"""
-
-import data
-
-TRAD = 0
-SIMP = 1
-EITHER = 2
+UNKNOWN = 0
+TRAD = TRADITIONAL = 1
+SIMP = SIMPLIFIED = 2
 BOTH = 3
+MIXED = 4
 
-TRAD_CHARS = set(list(data.TRAD))
-SIMP_CHARS = set(list(data.SIMP))
+_TRADITIONAL_CHARACTERS = set(list(cedict.traditional))
+_SIMPLIFIED_CHARACTERS = set(list(cedict.simplified))
+_SHARED_CHARACTERS = _TRADITIONAL_CHARACTERS.intersection(
+    _SIMPLIFIED_CHARACTERS)
+_ALL_CHARACTERS = cedict.all
 
-SHARED_CHARS = TRAD_CHARS.intersection(SIMP_CHARS)
-ALL_CHARS = TRAD_CHARS.union(SIMP_CHARS)
+
+def _get_hanzi(s):
+    """Extract a string's Chinese characters."""
+    return set(re.sub('[^%s]' % _ALL_CHARACTERS, '', s))
 
 
-def identify(text):
-    """Identify whether a string is simplified or traditional Chinese.
+def identify(s):
+    """Identify what kind of Chinese characters a string contains.
 
-    Returns:
-        None: if there are no recognizd Chinese characters.
-        EITHER: if the test is inconclusive.
-        TRAD: if the text is traditional.
-        SIMP: if the text is simplified.
-        BOTH: the text has characters recognized as being solely traditional
-            and other characters recognized as being solely simplified.
+    *s* is a string to examine. The string's Chinese characters are tested to
+    see if they are compatible with the Traditional or Simplified characters
+    systems, compatible with both, or contain a mixture of Traditional and
+    Simplified characters. The :data:`TRADITIONAL`, :data:`SIMPLIFIED`,
+    :data:`BOTH`, or :data:`MIXED` constants are returned to indicate the
+    string's identity. If *s* contains no Chinese characters, then
+    :data:`UNKNOWN` is returned.
+
+    All characters in a string that aren't found in the CC-CEDICT dictionary
+    are ignored.
+
+    Because the Traditional and Simplified Chinese character systems overlap, a
+    string containing Simplified characters could identify as
+    :data:`SIMPLIFIED` or :data:`BOTH` depending on if the characters are also
+    Traditional characters. To make testing the identity of a string easier,
+    the functions :func:`is_traditional`, :func:`is_simplified`, and
+    :func:`has_chinese` are provided.
 
     """
-    filtered_text = set(list(text)).intersection(ALL_CHARS)
-    if len(filtered_text) is 0:
-        return None
-    if filtered_text.issubset(SHARED_CHARS):
-        return EITHER
-    if filtered_text.issubset(TRAD_CHARS):
-        return TRAD
-    if filtered_text.issubset(SIMP_CHARS):
-        return SIMP
-    if filtered_text.difference(TRAD_CHARS).issubset(SIMP_CHARS):
+    chinese = _get_hanzi(s)
+    if not chinese:
+        return UNKNOWN
+    if chinese.issubset(_SHARED_CHARACTERS):
         return BOTH
+    if chinese.issubset(_TRADITIONAL_CHARACTERS):
+        return TRADITIONAL
+    if chinese.issubset(_SIMPLIFIED_CHARACTERS):
+        return SIMPLIFIED
+    return MIXED
+
+
+def has_chinese(s):
+    """Check if a string has Chinese characters in it.
+
+    This is a faster version of:
+        >>> identify('foo') is not UNKNOWN
+
+    """
+    return bool(_get_hanzi(s))
+
+
+def is_traditional(s):
+    """Check if a string's Chinese characters are Traditional.
+
+    This is equivalent to:
+        >>> identify('foo') in (TRADITIONAL, BOTH)
+
+    """
+    chinese = _get_hanzi(s)
+    if (chinese.issubset(_SHARED_CHARACTERS) or
+            chinese.issubset(_TRADITIONAL_CHARACTERS)):
+        return True
+    return False
+
+
+def is_simplified(s):
+    """Check if a string's Chinese characters are Simplified.
+
+    This is equivalent to:
+        >>> identify('foo') in (SIMPLIFIED, BOTH)
+
+    """
+    chinese = _get_hanzi(s)
+    if (chinese.issubset(_SHARED_CHARACTERS) or
+            chinese.issubset(_SIMPLIFIED_CHARACTERS)):
+        return True
+    return False
