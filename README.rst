@@ -64,7 +64,7 @@ Bugs/Feature Requests
 ---------------------
 
 Hanzi Identifier uses its `GitHub Issues page
-<https://github.com/tsroten/hanzidentifer/issues`_ to track bugs, feature
+<https://github.com/tsroten/hanzidentifer/issues>`_ to track bugs, feature
 requests, and support questions.
 
 Change Log
