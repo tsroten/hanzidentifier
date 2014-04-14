@@ -4,8 +4,8 @@ with open('README.rst') as f:
     long_description = f.read()
 
 setup(
-    name='Hanzi Identifier',
-    version='1.0',
+    name='hanzidentifier',
+    version='1.0.1',
     author='Thomas Roten',
     author_email='thomas@roten.us',
     url='https://github.com/tsroten/hanzidentifier',
