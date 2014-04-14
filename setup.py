@@ -5,7 +5,7 @@ with open('README.rst') as f:
 
 setup(
     name='Hanzi Identifier',
-    version='1.0dev',
+    version='1.0',
     author='Thomas Roten',
     author_email='thomas@roten.us',
     url='https://github.com/tsroten/hanzidentifier',

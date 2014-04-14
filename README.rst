@@ -67,6 +67,23 @@ Hanzi Identifier uses its `GitHub Issues page
 <https://github.com/tsroten/hanzidentifer/issues`_ to track bugs, feature
 requests, and support questions.
 
+Change Log
+----------
+
+v1.0 (2014-04-12)
+~~~~~~~~~~~~~~~~~
+
+Version 1.0 merges some changes from Dragon Mapper. It is not backwards compatible with
+the previous versions of Hanzi Identifier (e.g. some of the constants are named differently).
+
+* Merges code from `Dragon Mapper <http://github.com/tsroten/dragonmapper>`_ project.
+* Adds tox support.
+
+v0.1 (2013-04-24)
+~~~~~~~~~~~~~~~~~
+
+* Initial release.
+
 License
 -------
 
