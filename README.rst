@@ -54,7 +54,7 @@ Hanzi Identifier's functions accept and return unicode.
 Install
 -------
 
-Hanzi Identifier runs on Python 2.6 and 3. It requires `Zhon <https://github.com/tsroten/zhon>`_ to run.
+Hanzi Identifier runs on Python 2.7 and 3. It requires `Zhon <https://github.com/tsroten/zhon>`_ to run.
 
 .. code:: bash
 
