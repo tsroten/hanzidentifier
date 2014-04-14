@@ -30,23 +30,23 @@ Here it is without the helper functions:
     True
     >>> hanzidentifier.identify('你好！') is hanzidentifier.BOTH
     True
-    >>> hanzidentifier.identify('Country in Simplified: 国家. Country in Traditional: 國家' ) is hanzidentifier.MIXED
+    >>> hanzidentifier.identify('Country in Simplified: 国家. Country in Traditional: 國家.' ) is hanzidentifier.MIXED
     True
 
-`hanzidentifier.identify` has five possible return values:
+``hanzidentifier.identify`` has five possible return values:
 
-* `hanzidentifier.UNKNOWN`: there are no recognized Chinese characters in the string.
-* `hanzidentifier.BOTH`: the string is compatible with both Simplified and Traditional character systems.
-* `hanzidentifier.TRADITIONAL`: the string consists of Traditional characters.
-* `hanzidentifier.SIMPLIFIED`: the string consists of Simplified characters.
-* `hanzidentifier.MIXED`: the string consists of characters recognized solely as Traditional characters and also consists of characters recognized solely as Simplified characters.
+* ``hanzidentifier.UNKNOWN``: there are no recognized Chinese characters in the string.
+* ``hanzidentifier.BOTH`: the string is compatible with both Simplified and Traditional character systems.
+* ``hanzidentifier.TRADITIONAL``: the string consists of Traditional characters.
+* ``hanzidentifier.SIMPLIFIED``: the string consists of Simplified characters.
+* ``hanzidentifier.MIXED``: the string consists of characters recognized solely as Traditional characters and also consists of characters recognized solely as Simplified characters.
 
 Characters that aren't found in CC-CEDICT are ignored when determining a string's identity.
 Hanzi Identifier uses the CC-CEDICT data provided by `Zhon <https://github.com/tsroten/zhon>`_ to identify Chinese characters.
 
 Because the Traditional and Simplified Chinese character systems overlap, a
 string containing Simplified characters could identify as
-`hanzidentifer.SIMPLIFIED` or `hanzidentifier.BOTH` depending on if the
+``hanzidentifer.SIMPLIFIED`` or ``hanzidentifier.BOTH`` depending on if the
 characters are also Traditional characters.
 
 Hanzi Identifier's functions accept and return unicode.
