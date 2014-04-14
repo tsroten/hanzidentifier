@@ -76,8 +76,11 @@ def is_traditional(s):
 
     """
     chinese = _get_hanzi(s)
-    if (chinese.issubset(_SHARED_CHARACTERS) or
-            chinese.issubset(_TRADITIONAL_CHARACTERS)):
+    if not chinese:
+        return False
+    elif chinese.issubset(_SHARED_CHARACTERS):
+        return True
+    elif chinese.issubset(_TRADITIONAL_CHARACTERS):
         return True
     return False
 
@@ -90,7 +93,10 @@ def is_simplified(s):
 
     """
     chinese = _get_hanzi(s)
-    if (chinese.issubset(_SHARED_CHARACTERS) or
-            chinese.issubset(_SIMPLIFIED_CHARACTERS)):
+    if not chinese:
+        return False
+    elif chinese.issubset(_SHARED_CHARACTERS):
+        return True
+    elif chinese.issubset(_SIMPLIFIED_CHARACTERS):
         return True
     return False
