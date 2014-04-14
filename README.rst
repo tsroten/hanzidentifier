@@ -36,7 +36,7 @@ Here it is without the helper functions:
 ``hanzidentifier.identify`` has five possible return values:
 
 * ``hanzidentifier.UNKNOWN``: there are no recognized Chinese characters in the string.
-* ``hanzidentifier.BOTH`: the string is compatible with both Simplified and Traditional character systems.
+* ``hanzidentifier.BOTH``: the string is compatible with both Simplified and Traditional character systems.
 * ``hanzidentifier.TRADITIONAL``: the string consists of Traditional characters.
 * ``hanzidentifier.SIMPLIFIED``: the string consists of Simplified characters.
 * ``hanzidentifier.MIXED``: the string consists of characters recognized solely as Traditional characters and also consists of characters recognized solely as Simplified characters.
