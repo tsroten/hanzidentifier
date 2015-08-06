@@ -1,10 +1,23 @@
+================
 Hanzi Identifier
 ================
+
+.. image:: https://badge.fury.io/py/hanzidentifier.png
+    :target: http://badge.fury.io/py/hanzidentifier
+    
+.. image:: https://travis-ci.org/tsroten/hanzidentifier.png?branch=develop
+        :target: https://travis-ci.org/tsroten/hanzidentifier
+
+Hanzi Identifier is a simple Python module that identifies a string of text as 
+having Simplified or Traditional characters.
+
+* GitHub: https://github.com/tsroten/hanzidentifier
+* Free software: MIT license
 
 About
 -----
 
-Hanzi Identifier is a simple Python module that identifies a string of text has having Simplified or Traditional characters.
+Easy-to-use helper functions for identifying strings:
 
 .. code:: python
 
@@ -51,24 +64,28 @@ characters are also Traditional characters.
 
 Hanzi Identifier's functions accept and return unicode.
 
-Install
--------
+Getting Started
+---------------
 
-Hanzi Identifier runs on Python 2.7 and 3. It requires `Zhon <https://github.com/tsroten/zhon>`_ to run.
+* Install Hanzi Identifier: ``$ pip install hanzidentifier``
+* Report bugs and ask questions via `GitHub Issues <https://github.com/tsroten/hanzidentifier/issues>`_
+* `Contribute features or bug fixes <https://github.com/tsroten/hanzidentifier/pulls>`_
 
-.. code:: bash
-
-    $ pip install hanzidentifer
-
-Bugs/Feature Requests
----------------------
-
-Hanzi Identifier uses its `GitHub Issues page
-<https://github.com/tsroten/hanzidentifer/issues>`_ to track bugs, feature
-requests, and support questions.
 
 Change Log
 ----------
+
+v1.0.2 (2015-08-06)
+~~~~~~~~~~~~~~~~~~~
+
+* New README format
+* Adds Travis CI support
+* Uses ``io.open()`` in ``setup.py``. Fixes #1.
+
+v1.0.1 (2014-04-14)
+~~~~~~~~~~~~~~~~~~~
+
+* Fixes URL typo.
 
 v1.0 (2014-04-12)
 ~~~~~~~~~~~~~~~~~
@@ -83,8 +100,3 @@ v0.1 (2013-04-24)
 ~~~~~~~~~~~~~~~~~
 
 * Initial release.
-
-License
--------
-
-Hanzi Identifier is released under the OSI-approved `MIT License <http://opensource.org/licenses/MIT>`_. See the file `LICENSE.txt` for more information.
