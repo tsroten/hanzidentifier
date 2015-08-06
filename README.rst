@@ -75,6 +75,18 @@ Getting Started
 Change Log
 ----------
 
+v1.0.2 (2015-08-06)
+~~~~~~~~~~~~~~~~~~~
+
+* New README format
+* Adds Travis CI support
+* Uses ``io.open()`` in ``setup.py``. Fixes #1.
+
+v1.0.1 (2014-04-14)
+~~~~~~~~~~~~~~~~~~~
+
+* Fixes URL typo.
+
 v1.0 (2014-04-12)
 ~~~~~~~~~~~~~~~~~
 
