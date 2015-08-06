@@ -6,7 +6,7 @@ with open('README.rst', encoding='utf-8') as f:
 
 setup(
     name='hanzidentifier',
-    version='1.0.1',
+    version='1.0.2',
     author='Thomas Roten',
     author_email='thomas@roten.us',
     url='https://github.com/tsroten/hanzidentifier',
@@ -22,6 +22,8 @@ setup(
         'Intended Audience :: Developers',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Text Processing :: Linguistic',
         ],
     keywords=['chinese', 'mandarin', 'hanzi', 'characters', 'simplified',
