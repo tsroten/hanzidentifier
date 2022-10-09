@@ -14,14 +14,14 @@ MIXED = 4
 
 _TRADITIONAL_CHARACTERS = set(list(cedict.traditional))
 _SIMPLIFIED_CHARACTERS = set(list(cedict.simplified))
-_SHARED_CHARACTERS = _TRADITIONAL_CHARACTERS.intersection(
-    _SIMPLIFIED_CHARACTERS)
+_SHARED_CHARACTERS = _TRADITIONAL_CHARACTERS & _SIMPLIFIED_CHARACTERS
 _ALL_CHARACTERS = cedict.all
+HANZI_MATCH = re.compile(f"[^{_ALL_CHARACTERS}]")
 
 
 def _get_hanzi(s):
     """Extract a string's Chinese characters."""
-    return set(re.sub('[^%s]' % _ALL_CHARACTERS, '', s))
+    return set(HANZI_MATCH.sub("", s))
 
 
 def identify(s):
@@ -78,9 +78,9 @@ def is_traditional(s):
     chinese = _get_hanzi(s)
     if not chinese:
         return False
-    elif chinese.issubset(_SHARED_CHARACTERS):
+    if chinese.issubset(_SHARED_CHARACTERS):
         return True
-    elif chinese.issubset(_TRADITIONAL_CHARACTERS):
+    if chinese.issubset(_TRADITIONAL_CHARACTERS):
         return True
     return False
 
@@ -95,8 +95,8 @@ def is_simplified(s):
     chinese = _get_hanzi(s)
     if not chinese:
         return False
-    elif chinese.issubset(_SHARED_CHARACTERS):
+    if chinese.issubset(_SHARED_CHARACTERS):
         return True
-    elif chinese.issubset(_SIMPLIFIED_CHARACTERS):
+    if chinese.issubset(_SIMPLIFIED_CHARACTERS):
         return True
     return False
