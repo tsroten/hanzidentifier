@@ -100,3 +100,12 @@ def is_simplified(s):
     if chinese.issubset(_SIMPLIFIED_CHARACTERS):
         return True
     return False
+
+
+def count_chinese(s: str) -> int:
+    """count how many chinese exist in a string"""
+    result = 0
+    for i in s:
+        if has_chinese(i):
+            result += 1
+    return result
