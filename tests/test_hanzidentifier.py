@@ -34,6 +34,16 @@ class TestIdentifyFunction(unittest.TestCase):
     def test_return_mixed(self):
         self.assertEqual(hanzidentifier.MIXED, hanzidentifier.identify(MIXED))
 
+    def test_count_chinese(self):
+        self.assertEqual(
+            hanzidentifier.count_chinese(BOTH),
+            2,
+        )
+        self.assertEqual(
+            hanzidentifier.count_chinese(SIMPLIFIED),
+            3,
+        )
+
 
 class TestHelperFunctions(unittest.TestCase):
 
