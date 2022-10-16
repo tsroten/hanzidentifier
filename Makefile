@@ -12,7 +12,7 @@ help:
 	@echo "release - package and upload a release"
 
 clean:
-	rm -rf build dist egg *.egg-info htmlcov
+	rm -rf build dist egg *.egg-info .eggs htmlcov
 	find . -name '*.py[co]' -exec rm -f {} +
 
 lint:
