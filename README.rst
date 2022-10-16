@@ -75,6 +75,12 @@ Getting Started
 Change Log
 ----------
 
+v1.1.0 (2020-10-15)
+~~~~~~~~~~~~~~~~~~~
+
+* New function: ``count_chinese()``. Thanks to ramwin.
+* Drop Python 2.
+
 v1.0.2 (2015-08-06)
 ~~~~~~~~~~~~~~~~~~~
 
