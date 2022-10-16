@@ -6,7 +6,7 @@ with open('README.rst', encoding='utf-8') as f:
 
 setup(
     name='hanzidentifier',
-    version='1.0.2',
+    version='1.1.0',
     author='Thomas Roten',
     author_email='thomas@roten.us',
     url='https://github.com/tsroten/hanzidentifier',
