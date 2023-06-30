@@ -2,11 +2,11 @@
 Hanzi Identifier
 ================
 
-.. image:: https://badge.fury.io/py/hanzidentifier.png
-    :target: http://badge.fury.io/py/hanzidentifier
-    
-.. image:: https://travis-ci.org/tsroten/hanzidentifier.png?branch=develop
-        :target: https://travis-ci.org/tsroten/hanzidentifier
+.. image:: https://badge.fury.io/py/hanzidentifer.svg
+    :target: https://pypi.org/project/hanzidentifer
+
+.. image:: https://github.com/tsroten/hanzidentifer/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/tsroten/hanzidentifer/actions/workflows/ci.yml
 
 Hanzi Identifier is a simple Python module that identifies a string of text as 
 having Simplified or Traditional characters.
