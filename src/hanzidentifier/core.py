@@ -1,27 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Python module that identifies Chinese text as Simplified or Traditional."""
-
 from __future__ import unicode_literals
-import re
 
-from zhon import cedict
+from hanzidentifier import helpers
 
 UNKNOWN = 0
 TRAD = TRADITIONAL = 1
 SIMP = SIMPLIFIED = 2
 BOTH = 3
 MIXED = 4
-
-_TRADITIONAL_CHARACTERS = set(list(cedict.traditional))
-_SIMPLIFIED_CHARACTERS = set(list(cedict.simplified))
-_SHARED_CHARACTERS = _TRADITIONAL_CHARACTERS & _SIMPLIFIED_CHARACTERS
-_ALL_CHARACTERS = cedict.all
-HANZI_MATCH = re.compile(f"[^{_ALL_CHARACTERS}]")
-
-
-def _get_hanzi(s):
-    """Extract a string's Chinese characters."""
-    return set(HANZI_MATCH.sub("", s))
 
 
 def identify(s):
@@ -46,14 +32,14 @@ def identify(s):
     :func:`has_chinese` are provided.
 
     """
-    chinese = _get_hanzi(s)
+    chinese = helpers.get_hanzi(s)
     if not chinese:
         return UNKNOWN
-    if chinese.issubset(_SHARED_CHARACTERS):
+    if chinese.issubset(helpers.SHARED_CHARACTERS):
         return BOTH
-    if chinese.issubset(_TRADITIONAL_CHARACTERS):
+    if chinese.issubset(helpers.TRADITIONAL_CHARACTERS):
         return TRADITIONAL
-    if chinese.issubset(_SIMPLIFIED_CHARACTERS):
+    if chinese.issubset(helpers.SIMPLIFIED_CHARACTERS):
         return SIMPLIFIED
     return MIXED
 
@@ -65,7 +51,7 @@ def has_chinese(s):
         >>> identify('foo') is not UNKNOWN
 
     """
-    return bool(_get_hanzi(s))
+    return bool(helpers.get_hanzi(s))
 
 
 def is_traditional(s):
@@ -75,12 +61,12 @@ def is_traditional(s):
         >>> identify('foo') in (TRADITIONAL, BOTH)
 
     """
-    chinese = _get_hanzi(s)
+    chinese = helpers.get_hanzi(s)
     if not chinese:
         return False
-    if chinese.issubset(_SHARED_CHARACTERS):
+    if chinese.issubset(helpers.SHARED_CHARACTERS):
         return True
-    if chinese.issubset(_TRADITIONAL_CHARACTERS):
+    if chinese.issubset(helpers.TRADITIONAL_CHARACTERS):
         return True
     return False
 
@@ -92,12 +78,12 @@ def is_simplified(s):
         >>> identify('foo') in (SIMPLIFIED, BOTH)
 
     """
-    chinese = _get_hanzi(s)
+    chinese = helpers.get_hanzi(s)
     if not chinese:
         return False
-    if chinese.issubset(_SHARED_CHARACTERS):
+    if chinese.issubset(helpers.SHARED_CHARACTERS):
         return True
-    if chinese.issubset(_SIMPLIFIED_CHARACTERS):
+    if chinese.issubset(helpers.SIMPLIFIED_CHARACTERS):
         return True
     return False
 
