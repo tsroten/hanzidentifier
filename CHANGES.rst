@@ -1,6 +1,13 @@
 Changes
 =======
 
+v1.2.0 (2023-06-30)
+-------------------
+
+* Switches to hatch for project management
+* Remove legacy Python 2 references.
+* Use GitHub actions for CI.
+
 v1.1.0 (2020-10-15)
 -------------------
 
