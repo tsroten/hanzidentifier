@@ -9,6 +9,7 @@ SIMP = SIMPLIFIED = 2
 BOTH = 3
 MIXED = 4
 
+
 def identify(s):
     """Identify what kind of Chinese characters a string contains.
 
