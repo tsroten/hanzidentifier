@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """The test module for Hanzi Identifier."""
 
-from __future__ import unicode_literals
 import unittest
 
 import hanzidentifier
