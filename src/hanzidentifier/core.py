@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from hanzidentifier import helpers
 
 UNKNOWN = 0

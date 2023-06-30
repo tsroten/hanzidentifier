@@ -62,8 +62,6 @@ string containing Simplified characters could identify as
 ``hanzidentifer.SIMPLIFIED`` or ``hanzidentifier.BOTH`` depending on if the
 characters are also Traditional characters.
 
-Hanzi Identifier's functions accept and return unicode.
-
 Getting Started
 ---------------
 
