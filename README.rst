@@ -2,11 +2,11 @@
 Hanzi Identifier
 ================
 
-.. image:: https://badge.fury.io/py/hanzidentifer.svg
-    :target: https://pypi.org/project/hanzidentifer
+.. image:: https://badge.fury.io/py/hanzidentifier.svg
+    :target: https://pypi.org/project/hanzidentifier
 
-.. image:: https://github.com/tsroten/hanzidentifer/actions/workflows/ci.yml/badge.svg
-    :target: https://github.com/tsroten/hanzidentifer/actions/workflows/ci.yml
+.. image:: https://github.com/tsroten/hanzidentifier/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/tsroten/hanzidentifier/actions/workflows/ci.yml
 
 Hanzi Identifier is a simple Python module that identifies a string of text as 
 having Simplified or Traditional characters.
@@ -59,7 +59,7 @@ Hanzi Identifier uses the CC-CEDICT data provided by `Zhon <https://github.com/t
 
 Because the Traditional and Simplified Chinese character systems overlap, a
 string containing Simplified characters could identify as
-``hanzidentifer.SIMPLIFIED`` or ``hanzidentifier.BOTH`` depending on if the
+``hanzidentifier.SIMPLIFIED`` or ``hanzidentifier.BOTH`` depending on if the
 characters are also Traditional characters.
 
 Hanzi Identifier's functions accept and return unicode.
