@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hanzidentifier"
+dynamic = ["version"]
+description = "Python module that identifies Chinese text as Simplified or Traditional."
+readme = "README.rst"
+license = "MIT"
+authors = [
+    { name = "Thomas Roten", email = "thomas@roten.us" },
+]
+requires-python = ">=3.7"
+keywords = [
+    "chinese",
+    "mandarin",
+    "hanzi",
+    "characters",
+    "simplified",
+    "traditional",
+    "cjk",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "zhon ~= 1.1.3",
+]
+
+[project.urls]
+Changes = "https://github.com/tsroten/hanzidentifier/blob/main/CHANGES.rst"
+"Issue Tracker" = "https://github.com/tsroten/hanzidentifier/issues"
+"Source Code" = "https://github.com/tsroten/hanzidentifier"
+
+[tool.hatch.version]
+path = "src/hanzidentifier/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+]
+
+[tool.hatch.envs.default.scripts]
+test = "hatch run test:run"
+format = "hatch run style:format"
+lint = "hatch run style:check"
+
+[tool.hatch.envs.test.scripts]
+clean = "find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete"
+test = "python3 -Wdefault -m unittest -v"
+run = [
+    "clean",
+    "test"
+]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.7", "3.8", "3.9", "3.10", "3.11"]
+
+[tool.hatch.envs.style]
+detached = true
+dependencies = [
+    "black",
+    "flake8",
+    "pep8-naming",
+    "flake8-blind-except",
+    "flake8-builtins",
+    "flake8-pep3101",
+    "flake8-string-format"
+]
+
+[tool.hatch.envs.style.scripts]
+check = [
+    "black -q --check --diff src tests",
+    "flake8 src tests"
+]
+format = [
+    "black -q src tests"
+]

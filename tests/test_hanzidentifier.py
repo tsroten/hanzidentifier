@@ -64,7 +64,3 @@ class TestHelperFunctions(unittest.TestCase):
         self.assertTrue(hanzidentifier.is_traditional(BOTH))
         self.assertTrue(hanzidentifier.is_traditional(TRADITIONAL))
         self.assertFalse(hanzidentifier.is_traditional(UNKNOWN))
-
-
-if __name__ == '__main__':
-    unittest.main()
